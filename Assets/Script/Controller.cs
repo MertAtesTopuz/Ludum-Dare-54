@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    public int maxRAM = 100;
-    private int currRAM;
+    //public int maxRAM = 100;
+    public int currRAM;
 
     private void Start()
     {
-        currRAM = maxRAM;
+        currRAM = 0;
     }
 
     private void Update()
@@ -17,7 +17,8 @@ public class Controller : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
 
-           // Debug.Log("click");
+            Debug.Log("click");
+            Debug.Log(currRAM);
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
             if (hit.collider != null)
@@ -27,7 +28,7 @@ public class Controller : MonoBehaviour
                 if (hit.collider.CompareTag("Window"))
                 {
                     Destroy(hit.collider.gameObject);
-                    currRAM += 10; 
+                    currRAM -= 10; 
                 }
             }
         }
