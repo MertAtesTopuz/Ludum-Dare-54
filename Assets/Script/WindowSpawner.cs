@@ -11,6 +11,8 @@ public class WindowSpawner : MonoBehaviour
 
     public Controller cont;
 
+    public Material windowMaterial;
+
     private float spawnTimer = 0f;
 
     private void Update()
@@ -37,7 +39,15 @@ public class WindowSpawner : MonoBehaviour
         GameObject newWindow = Instantiate(windowPrefab, spawnPosition, Quaternion.identity);
 
         cont.currRAM += 10;
+        
 
         newWindow.tag = "Window";
+
+        Renderer renderer = newWindow.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            renderer.material = windowMaterial;
+            renderer.material.color = Random.ColorHSV();
+        }
     }
 }

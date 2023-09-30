@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Controller : MonoBehaviour
 {
     //public int maxRAM = 100;
+    public Slider RamSlider;
     public int currRAM;
 
     private void Start()
@@ -14,6 +16,8 @@ public class Controller : MonoBehaviour
 
     private void Update()
     {
+
+        RamSlider .value = currRAM;
         if (Input.GetMouseButtonDown(0))
         {
 
