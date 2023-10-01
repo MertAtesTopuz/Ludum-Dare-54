@@ -26,4 +26,21 @@ public class VirusMovment : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Virus")
+        {
+            Debug.Log("colide");
+
+            Destroy(gameObject);
+        }
+
+        if (collision.collider.tag == "Anti-Virus")
+        {
+            Debug.Log("colide");
+
+            Destroy(gameObject);
+        }
+    }
 }

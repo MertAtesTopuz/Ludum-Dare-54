@@ -9,6 +9,8 @@ TagManager:
   - Manager
   - trsh
   - Virus
+  - Window
+  - Anti-Virus
   layers:
   - Default
   - TransparentFX
