@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrashBin : MonoBehaviour
 {
     public FileSpawner manager;
+    //public GameObject top;
 
     private void Start()
     {
@@ -51,6 +52,24 @@ public class TrashBin : MonoBehaviour
         {
             Destroy(other.gameObject);
             manager.isDelSystem32 = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "SystemFile")
+        {
+            // animasyon eklenecek
+        }
+
+        if (other.tag == "MalwareFile")
+        {
+            // animasyon eklenecek
+        }
+
+        if (other.tag == "System32")
+        {
+            // animasyon eklenecek
         }
     }
 }

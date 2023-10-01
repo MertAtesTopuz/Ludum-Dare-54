@@ -7,7 +7,7 @@ using TMPro;
 public class FileSpawner : MonoBehaviour
 {
     [SerializeField] private float spnTime;
-    [SerializeField] private float timeEditor;
+    private float timeEditor;
     [SerializeField] private float setTimeEditor;
 
     [SerializeField] private Slider spawnSlider;
