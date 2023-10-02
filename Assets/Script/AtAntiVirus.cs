@@ -18,12 +18,18 @@ public class AtAntiVirus : MonoBehaviour
     public float spawnBoxMinY = -6f;
     public float spawnBoxMaxY = 6f;
 
+    public AudioClip spawnSound;
+    public AudioClip deadSound;
+
+    private AudioSource audioSource;
+
     //private bool isAnimating = false;
 
     void Start()
     {
         mainCamera = Camera.main;
         //currentSpawnInterval = spawnInterval;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -37,7 +43,7 @@ public class AtAntiVirus : MonoBehaviour
         }
 
 
-        if (timer >= spawnInterval && GameObject.FindGameObjectsWithTag("Virus").Length < maxObjects)
+        if (timer >= spawnInterval && GameObject.FindGameObjectsWithTag("antiVir").Length < maxObjects)
         {
             SpawnObject();
             timer = 0.0f;
@@ -75,9 +81,13 @@ public class AtAntiVirus : MonoBehaviour
 
         GameObject newObj = Instantiate(objectPrefab, spawnPosition, Quaternion.identity);
         newObj.GetComponent<Rigidbody2D>().velocity = (Vector3.zero - spawnPosition).normalized * spawnSpeed;
-        newObj.tag = "Virus";
+        newObj.tag = "antiVir";
 
-
+        if (audioSource != null && spawnSound != null)
+        {
+            audioSource.PlayOneShot(spawnSound);
+            Debug.Log("ses");
+        }
     }
 
     void HandleMouseClick()
@@ -85,7 +95,7 @@ public class AtAntiVirus : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
-        if (hit.collider != null && hit.collider.CompareTag("Virus"))
+        if (hit.collider != null && hit.collider.CompareTag("antiVir"))
         {
             Animator anim = hit.collider.gameObject.GetComponent<Animator>();
             if (anim != null)
@@ -93,7 +103,12 @@ public class AtAntiVirus : MonoBehaviour
                 anim.SetTrigger("Destroy");
                 //isAnimating = true;
 
-                Destroy(hit.collider.gameObject, 0.6f);
+                Destroy(hit.collider.gameObject, 0.1f);
+                if (audioSource != null && deadSound != null)
+                {
+                    audioSource.PlayOneShot(deadSound);
+                    Debug.Log("ses");
+                }
             }
         }
     }

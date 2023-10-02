@@ -19,12 +19,18 @@ public class AtomVirus : MonoBehaviour
     public float spawnBoxMinY = -6f;
     public float spawnBoxMaxY = 6f;
 
+    public AudioClip spawnSound;
+    public AudioClip deadSound;
+
+    private AudioSource audioSource;
+
     //private bool isAnimating = false;
 
     void Start()
     {
         mainCamera = Camera.main;
         currentSpawnInterval = spawnInterval;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -77,8 +83,12 @@ public class AtomVirus : MonoBehaviour
         GameObject newObj = Instantiate(objectPrefab, spawnPosition, Quaternion.identity);
         newObj.GetComponent<Rigidbody2D>().velocity = (Vector3.zero - spawnPosition).normalized * spawnSpeed;
         newObj.tag = "Virus";
+        if (audioSource != null && spawnSound != null)
+        {
+            audioSource.PlayOneShot(spawnSound);
+            Debug.Log("ses");
+        }
 
-        
     }
 
     void HandleMouseClick()
@@ -95,6 +105,11 @@ public class AtomVirus : MonoBehaviour
                 //isAnimating = true;
 
                 Destroy(hit.collider.gameObject, 0.1f);
+                if (audioSource != null && deadSound != null)
+                {
+                    audioSource.PlayOneShot(deadSound);
+                    Debug.Log("ses");
+                }
             }
         }
     }

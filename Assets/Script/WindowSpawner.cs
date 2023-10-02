@@ -5,8 +5,8 @@ using UnityEngine;
 public class WindowSpawner : MonoBehaviour
 {
     public GameObject[] windowPrefabs;
-    public float minSpawnInterval = 1.0f; // Minimum spawn interval.
-    public float maxSpawnInterval = 3.0f; // Maximum spawn interval.
+    public float minSpawnInterval = 1.0f;
+    public float maxSpawnInterval = 3.0f;
     public float spawnRange = 5f;
     public int maxWindows = 10;
 
@@ -17,8 +17,10 @@ public class WindowSpawner : MonoBehaviour
     public AudioClip spawnSound;
 
     private float spawnTimer = 0f;
-    private float currentSpawnInterval; // Current spawn interval.
+    private float currentSpawnInterval; 
     private AudioSource audioSource;
+
+    [SerializeField] private bool isSpawn;
 
     private void Start()
     {
@@ -28,19 +30,19 @@ public class WindowSpawner : MonoBehaviour
             Debug.LogError("No AudioSource component found on this GameObject.");
         }
 
-        // Initialize the current spawn interval.
         currentSpawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
     }
 
     private void Update()
     {
+        if (!isSpawn)
+            return;
         spawnTimer += Time.deltaTime;
 
-        // If the spawnTimer exceeds the currentSpawnInterval, spawn a window.
         if (spawnTimer >= currentSpawnInterval && GameObject.FindGameObjectsWithTag("Window").Length < maxWindows)
         {
             SpawnWindow();
-            // Generate a new random currentSpawnInterval.
+
             currentSpawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
             spawnTimer = 0f;
         }
