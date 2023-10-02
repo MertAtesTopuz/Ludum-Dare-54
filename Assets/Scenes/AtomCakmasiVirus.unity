@@ -354,6 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 925736577}
   - component: {fileID: 925736576}
+  - component: {fileID: 925736578}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -374,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 6797318380761618677, guid: ad46e35b6e3c51c4cbe9e8ec079c1bc0, type: 3}
-  spawnInterval: 2
+  spawnInterval: 1
   spawnSpeed: 1.7
   maxObjects: 10
   gameDuration: 60
@@ -397,6 +398,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &925736578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925736575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10e5320d58c59804a92bb3f82da927c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 6797318380761618677, guid: 9dd2a32a5ec39654d811f878f5d3c530, type: 3}
+  spawnInterval: 3
+  spawnSpeed: 2
+  maxObjects: 10
+  gameDuration: 60
+  spawnBoxMinX: -10
+  spawnBoxMaxX: 10
+  spawnBoxMinY: -6
+  spawnBoxMaxY: 6
 --- !u!1 &1040726049
 GameObject:
   m_ObjectHideFlags: 0

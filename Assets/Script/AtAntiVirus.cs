@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AtomVirus : MonoBehaviour
+public class AtAntiVirus : MonoBehaviour
 {
     public GameObject objectPrefab;
     public float spawnInterval = 2.0f;
@@ -10,7 +10,6 @@ public class AtomVirus : MonoBehaviour
     public int maxObjects = 10;
     public float gameDuration = 60.0f;
 
-    private float currentSpawnInterval;
     private float timer = 0.0f;
     private Camera mainCamera;
 
@@ -24,17 +23,17 @@ public class AtomVirus : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
-        currentSpawnInterval = spawnInterval;
+        //currentSpawnInterval = spawnInterval;
     }
 
     void Update()
     {
         timer += Time.deltaTime;
 
-        spawnInterval -= Time.deltaTime/35;
-        if (spawnInterval <= 0.4f)
+        spawnInterval -= Time.deltaTime / 40;
+        if (spawnInterval <= 0.6f)
         {
-            spawnInterval = 0.4f;
+            spawnInterval = 0.6f;
         }
 
 
@@ -78,7 +77,7 @@ public class AtomVirus : MonoBehaviour
         newObj.GetComponent<Rigidbody2D>().velocity = (Vector3.zero - spawnPosition).normalized * spawnSpeed;
         newObj.tag = "Virus";
 
-        
+
     }
 
     void HandleMouseClick()
@@ -94,7 +93,7 @@ public class AtomVirus : MonoBehaviour
                 anim.SetTrigger("Destroy");
                 //isAnimating = true;
 
-                Destroy(hit.collider.gameObject, 0.1f);
+                Destroy(hit.collider.gameObject, 0.6f);
             }
         }
     }

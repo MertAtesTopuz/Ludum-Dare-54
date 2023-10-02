@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5163649422540787046}
   - component: {fileID: -2923704333567393231}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: AntiV
   m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 6797318380761618677}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.6586, y: -0.14087, z: 0}
-  m_LocalScale: {x: 4.497793, y: 5.554739, z: 4.497793}
+  m_LocalPosition: {x: 5.658, y: -0.14087, z: 0}
+  m_LocalScale: {x: 2.9075983, y: 3.5908608, z: 2.9075983}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1451323071, guid: 44df38e6d72ed0f4bac12d14898ecf79, type: 3}
+  m_Sprite: {fileID: -357095029, guid: aab94f602a1a56e4fb927c1ceedd2853, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,18 +146,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00037065148, y: 0.0031116344}
+  m_Offset: {x: -0.00037065148, y: 0.0015631542}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0.25, w: 0}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.125}
+    oldSize: {x: 0.25, y: 0.25}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.29217052, y: 0.17591882}
+  m_Size: {x: 0.29217052, y: 0.25747252}
   m_EdgeRadius: 0
 --- !u!95 &-2923704333567393231
 Animator:
@@ -169,7 +169,7 @@ Animator:
   m_GameObject: {fileID: 6797318380761618677}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7b4423684846cc641882011f49a925d1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 448e487af48d7d3419e5ebc52778a8f3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
