@@ -23,6 +23,9 @@ public class AtAntiVirus : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public bool isSpawn;
+    public AtomVirus AtomVirus;
+
     //private bool isAnimating = false;
 
     void Start()
@@ -34,6 +37,9 @@ public class AtAntiVirus : MonoBehaviour
 
     void Update()
     {
+        isSpawn = AtomVirus.isSpawn;
+        if (!isSpawn)
+            return;
         timer += Time.deltaTime;
 
         spawnInterval -= Time.deltaTime / 40;

@@ -20,7 +20,7 @@ public class WindowSpawner : MonoBehaviour
     private float currentSpawnInterval; 
     private AudioSource audioSource;
 
-    [SerializeField] private bool isSpawn;
+    public bool isSpawn;
 
     private void Start()
     {

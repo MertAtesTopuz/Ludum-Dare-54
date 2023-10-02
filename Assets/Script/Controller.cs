@@ -10,8 +10,13 @@ public class Controller : MonoBehaviour
     public int currRAM;
 
     public AudioClip spawnSound;
+    public AudioClip Xerror;
 
     private AudioSource audioSource;
+
+    public AtomVirus AtomVirus;
+    public GameObject VirusMiniGameWindowPopUp;
+    public GameObject VirusMiniGameWindow;
 
     private void Start()
     {
@@ -44,6 +49,24 @@ public class Controller : MonoBehaviour
                         Debug.Log("ses");
                     }
                 }
+
+                if (hit.collider.CompareTag("VirusMiniGame"))
+                {
+                    AtomVirus.isSpawn = true;
+                    VirusMiniGameWindowPopUp.SetActive(false);
+                    VirusMiniGameWindow.SetActive(true);
+                }
+                if (hit.collider.CompareTag("X"))
+                {
+
+                    
+                    if (audioSource != null && Xerror != null)
+                    {
+                        audioSource.PlayOneShot(Xerror);
+                        Debug.Log("ses");
+                    }
+                }
+
             }
         }
     }

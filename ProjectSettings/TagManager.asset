@@ -9,6 +9,8 @@ TagManager:
   - Window
   - Virus
   - antiVir
+  - X
+  - VirusMiniGame
   layers:
   - Default
   - TransparentFX

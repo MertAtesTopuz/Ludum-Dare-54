@@ -23,6 +23,7 @@ public class AtomVirus : MonoBehaviour
     public AudioClip deadSound;
 
     private AudioSource audioSource;
+    public bool isSpawn;
 
     //private bool isAnimating = false;
 
@@ -35,12 +36,15 @@ public class AtomVirus : MonoBehaviour
 
     void Update()
     {
+
+        if (!isSpawn)
+            return;
         timer += Time.deltaTime;
 
         spawnInterval -= Time.deltaTime/35;
-        if (spawnInterval <= 0.4f)
+        if (spawnInterval <= 0.6f)
         {
-            spawnInterval = 0.4f;
+            spawnInterval = 0.6f;
         }
 
 
