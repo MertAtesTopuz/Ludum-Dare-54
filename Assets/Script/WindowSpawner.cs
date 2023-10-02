@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class WindowSpawner : MonoBehaviour
 {
-    public GameObject windowPrefab;
-    public float spawnInterval = 2f; 
-    public float spawnRange = 5f;    
+    public GameObject[] windowPrefabs;  // Array of window prefabs.
+    public float spawnInterval = 2f;
+    public float spawnRange = 5f;
     public int maxWindows = 10;
 
     public Controller cont;
@@ -17,7 +17,6 @@ public class WindowSpawner : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(cont.currRAM);
         spawnTimer += Time.deltaTime;
         if (spawnTimer >= spawnInterval && GameObject.FindGameObjectsWithTag("Window").Length < maxWindows)
         {
@@ -28,26 +27,27 @@ public class WindowSpawner : MonoBehaviour
 
     private void SpawnWindow()
     {
-        
+        if (windowPrefabs.Length == 0)
+        {
+            Debug.LogError("No window prefabs assigned.");
+            return;
+        }
+
         Vector3 spawnPosition = new Vector3(
             Random.Range(0, 8),
             Random.Range(-5, 0),
             0f
         );
 
-        
-        GameObject newWindow = Instantiate(windowPrefab, spawnPosition, Quaternion.identity);
+        // Choose a random window prefab from the array.
+        GameObject randomWindowPrefab = windowPrefabs[Random.Range(0, windowPrefabs.Length)];
+
+        GameObject newWindow = Instantiate(randomWindowPrefab, spawnPosition, Quaternion.identity);
 
         cont.currRAM += 10;
-        
 
         newWindow.tag = "Window";
 
-        Renderer renderer = newWindow.GetComponent<Renderer>();
-        if (renderer != null)
-        {
-            renderer.material = windowMaterial;
-            renderer.material.color = Random.ColorHSV();
-        }
+        
     }
 }
