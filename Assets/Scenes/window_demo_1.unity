@@ -490,6 +490,7 @@ MonoBehaviour:
   cont: {fileID: 1459178192}
   windowMaterial: {fileID: 0}
   spawnSound: {fileID: 8300000, guid: 208dc13c463d9074aa837a52e456317b, type: 3}
+  OnOfTimer: 0
   isSpawn: 1
 --- !u!4 &1459178191
 Transform:
@@ -521,6 +522,11 @@ MonoBehaviour:
   RamSlider: {fileID: 625855519}
   currRAM: 0
   spawnSound: {fileID: 8300000, guid: acf7ed657c9984c4aaf43db4cad0f305, type: 3}
+  Xerror: {fileID: 0}
+  AtomVirus: {fileID: 0}
+  VirusMiniGameWindowPopUp: {fileID: 0}
+  VirusMiniGameWindow: {fileID: 0}
+  PC: {fileID: 0}
 --- !u!82 &1459178193
 AudioSource:
   m_ObjectHideFlags: 0
@@ -541,7 +547,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 13.373088
+  MinDistance: 1.1917171
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

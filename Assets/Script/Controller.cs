@@ -15,9 +15,9 @@ public class Controller : MonoBehaviour
     private AudioSource audioSource;
 
     public AtomVirus AtomVirus;
-    public GameObject VirusMiniGameWindowPopUp;
-    public GameObject VirusMiniGameWindow;
-    public GameObject PC;
+    public  GameObject VirusMiniGameWindowPopUp;
+    public  GameObject VirusMiniGameWindow;
+    public  GameObject PC;
 
     private void Start()
     {
@@ -70,6 +70,13 @@ public class Controller : MonoBehaviour
                 }
 
             }
+        }
+
+        if (!AtomVirus.isSpawn)
+        {
+            VirusMiniGameWindow.SetActive(false);
+            //VirusMiniGameWindowPopUp.SetActive(false);
+            PC.SetActive(false);
         }
     }
 }
