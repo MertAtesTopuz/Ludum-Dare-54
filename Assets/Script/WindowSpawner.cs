@@ -5,7 +5,8 @@ using UnityEngine;
 public class WindowSpawner : MonoBehaviour
 {
     public GameObject[] windowPrefabs;
-    public float spawnInterval = 2f;
+    public float minSpawnInterval = 1.0f; // Minimum spawn interval.
+    public float maxSpawnInterval = 3.0f; // Maximum spawn interval.
     public float spawnRange = 5f;
     public int maxWindows = 10;
 
@@ -13,14 +14,34 @@ public class WindowSpawner : MonoBehaviour
 
     public Material windowMaterial;
 
+    public AudioClip spawnSound;
+
     private float spawnTimer = 0f;
+    private float currentSpawnInterval; // Current spawn interval.
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            Debug.LogError("No AudioSource component found on this GameObject.");
+        }
+
+        // Initialize the current spawn interval.
+        currentSpawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
+    }
 
     private void Update()
     {
         spawnTimer += Time.deltaTime;
-        if (spawnTimer >= spawnInterval && GameObject.FindGameObjectsWithTag("Window").Length < maxWindows)
+
+        // If the spawnTimer exceeds the currentSpawnInterval, spawn a window.
+        if (spawnTimer >= currentSpawnInterval && GameObject.FindGameObjectsWithTag("Window").Length < maxWindows)
         {
             SpawnWindow();
+            // Generate a new random currentSpawnInterval.
+            currentSpawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
             spawnTimer = 0f;
         }
     }
@@ -47,7 +68,10 @@ public class WindowSpawner : MonoBehaviour
 
         newWindow.tag = "Window";
 
-        
-
+        if (audioSource != null && spawnSound != null)
+        {
+            audioSource.PlayOneShot(spawnSound);
+            Debug.Log("Spawn sound played.");
+        }
     }
 }

@@ -9,9 +9,14 @@ public class Controller : MonoBehaviour
     public Slider RamSlider;
     public int currRAM;
 
+    public AudioClip spawnSound;
+
+    private AudioSource audioSource;
+
     private void Start()
     {
         currRAM = 0;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -32,7 +37,12 @@ public class Controller : MonoBehaviour
                 if (hit.collider.CompareTag("Window"))
                 {
                     Destroy(hit.collider.gameObject);
-                    currRAM -= 10; 
+                    currRAM -= 10;
+                    if (audioSource != null && spawnSound != null)
+                    {
+                        audioSource.PlayOneShot(spawnSound);
+                        Debug.Log("ses");
+                    }
                 }
             }
         }
