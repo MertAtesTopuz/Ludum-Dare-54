@@ -15,11 +15,21 @@ public class HeatBarController : MonoBehaviour
     [SerializeField] private float heatTime1;
     [SerializeField] private float heatValue2;
     [SerializeField] private float heatTime2;
+    [SerializeField] private float spinSpeed;
+
+    public GameObject fan1;
+
+    private float rotZ;
+
 
     void Update()
     {
         HeatBar1();
         HeatBar2();
+
+        rotZ += Time.deltaTime * spinSpeed;
+
+        fan1.transform.rotation = Quaternion.Euler(fan1.transform.rotation.x, fan1.transform.rotation.y , rotZ );
     }
 
     private void HeatBar1()
@@ -84,6 +94,6 @@ public class HeatBarController : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("gg");
+        GameEnd.instance.endControl = true;
     }
 }

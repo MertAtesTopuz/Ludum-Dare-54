@@ -57,8 +57,8 @@ public class WindowSpawner : MonoBehaviour
         }
 
         Vector3 spawnPosition = new Vector3(
-            Random.Range(0, 8),
-            Random.Range(-5, 0),
+            Random.Range(-6.5f, 0.5f),
+            Random.Range(-1.2f, 1.8f),
             0f
         );
 

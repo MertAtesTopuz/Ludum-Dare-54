@@ -78,6 +78,7 @@ public class FileSpawner : MonoBehaviour
 
     private void GameOver()
     {
+        GameEnd.instance.endControl = true;
         Debug.Log("gg"); //sonradan değiştirilecek
     }
 
