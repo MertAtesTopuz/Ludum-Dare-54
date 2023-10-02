@@ -3,14 +3,31 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< Updated upstream
   tags:
   - MalwareFile
   - SystemFile
   - Window
   - Virus
   - antiVir
+<<<<<<< HEAD
   - X
   - VirusMiniGame
+=======
+=======
+<<<<<<< Updated upstream
+  tags: []
+=======
+  tags:
+  - Undefined
+  - Window
+  - Manager
+  - SystemFile
+  - MalwareFile
+  - System32
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+>>>>>>> branch3
   layers:
   - Default
   - TransparentFX
