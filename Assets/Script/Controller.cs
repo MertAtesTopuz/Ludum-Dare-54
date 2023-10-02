@@ -19,6 +19,10 @@ public class Controller : MonoBehaviour
     public GameObject VirusMiniGameWindow;
     public GameObject PC;
 
+    public FileSpawner file;
+    public HeatBarController heatBar;
+    public WindowSpawner windowCon;
+
     private void Start()
     {
         currRAM = 0;
@@ -27,6 +31,10 @@ public class Controller : MonoBehaviour
 
     private void Update()
     {
+        if (VirusMiniGameWindow.activeSelf == true)
+        {
+            windowCon.isSpawn = false;
+        }
 
         RamSlider.value = currRAM;
         if (Input.GetMouseButtonDown(0))
@@ -53,6 +61,8 @@ public class Controller : MonoBehaviour
 
                 if (hit.collider.CompareTag("VirusMiniGame"))
                 {
+                    file.FileControlBool = true;
+                    heatBar.fanControlBool = true;
                     AtomVirus.isSpawn = true;
                     VirusMiniGameWindowPopUp.SetActive(false);
                     VirusMiniGameWindow.SetActive(true);
@@ -77,6 +87,8 @@ public class Controller : MonoBehaviour
             VirusMiniGameWindow.SetActive(false);
             //VirusMiniGameWindowPopUp.SetActive(false);
             PC.SetActive(false);
+            file.FileControlBool = false;
+            heatBar.fanControlBool = false;
         }
     }
 }
