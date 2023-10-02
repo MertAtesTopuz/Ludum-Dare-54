@@ -18,6 +18,7 @@ public class HeatBarController : MonoBehaviour
     [SerializeField] private float spinSpeed;
 
     public GameObject fan1;
+    public GameObject fan2;
 
     private float rotZ;
 
@@ -30,6 +31,7 @@ public class HeatBarController : MonoBehaviour
         rotZ += Time.deltaTime * spinSpeed;
 
         fan1.transform.rotation = Quaternion.Euler(fan1.transform.rotation.x, fan1.transform.rotation.y , rotZ );
+        fan2.transform.rotation = Quaternion.Euler(fan2.transform.rotation.x, fan2.transform.rotation.y , rotZ );
     }
 
     private void HeatBar1()

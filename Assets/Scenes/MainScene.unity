@@ -1054,6 +1054,7 @@ MonoBehaviour:
   heatTime2: 2
   spinSpeed: 150
   fan1: {fileID: 558223422}
+  fan2: {fileID: 1141362626}
 --- !u!114 &413783487
 MonoBehaviour:
   m_ObjectHideFlags: 0
