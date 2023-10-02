@@ -28,6 +28,8 @@ public class FileSpawner : MonoBehaviour
 
     public bool isDelSystem32;
 
+    public bool FileControlBool;
+
     private void Start()
     {
        timeEditor = setTimeEditor;
@@ -36,19 +38,22 @@ public class FileSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (timeEditor == setTimeEditor)
+        if (FileControlBool == false)
         {
-            StartCoroutine(FileSpawnTimer());
+            if (timeEditor == setTimeEditor)
+            {
+                StartCoroutine(FileSpawnTimer());
+            }
+
+            if (hddSlider.value == 1 || systemDeadCount >= 10 || isDelSystem32 == true)
+            {
+                GameOver();
+            }
+
+            spawnSlider.value -= Time.deltaTime / 3;
+
+            systemDelCounter.text = systemDeadCount.ToString();
         }
-
-        if (hddSlider.value == 1 || systemDeadCount >= 10 || isDelSystem32 == true)
-        {
-            GameOver();
-        }
-
-        spawnSlider.value -= Time.deltaTime / 3;
-
-        systemDelCounter.text = systemDeadCount.ToString();
     }
 
     private void SpawnSetter()

@@ -22,16 +22,21 @@ public class HeatBarController : MonoBehaviour
 
     private float rotZ;
 
+    public bool fanControlBool;
 
     void Update()
     {
-        HeatBar1();
-        HeatBar2();
+        if (fanControlBool == false)
+        {
+            HeatBar1();
+            HeatBar2();
 
-        rotZ += Time.deltaTime * spinSpeed;
+            rotZ += Time.deltaTime * spinSpeed;
 
-        fan1.transform.rotation = Quaternion.Euler(fan1.transform.rotation.x, fan1.transform.rotation.y , rotZ );
-        fan2.transform.rotation = Quaternion.Euler(fan2.transform.rotation.x, fan2.transform.rotation.y , rotZ );
+            fan1.transform.rotation = Quaternion.Euler(fan1.transform.rotation.x, fan1.transform.rotation.y, rotZ);
+            fan2.transform.rotation = Quaternion.Euler(fan2.transform.rotation.x, fan2.transform.rotation.y, rotZ);
+        }
+       
     }
 
     private void HeatBar1()
