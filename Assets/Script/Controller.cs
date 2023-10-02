@@ -17,6 +17,7 @@ public class Controller : MonoBehaviour
     public AtomVirus AtomVirus;
     public GameObject VirusMiniGameWindowPopUp;
     public GameObject VirusMiniGameWindow;
+    public GameObject PC;
 
     private void Start()
     {
@@ -55,6 +56,7 @@ public class Controller : MonoBehaviour
                     AtomVirus.isSpawn = true;
                     VirusMiniGameWindowPopUp.SetActive(false);
                     VirusMiniGameWindow.SetActive(true);
+                    PC.SetActive(true);
                 }
                 if (hit.collider.CompareTag("X"))
                 {

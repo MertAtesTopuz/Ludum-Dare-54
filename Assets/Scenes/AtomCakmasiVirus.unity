@@ -785,6 +785,7 @@ MonoBehaviour:
   AtomVirus: {fileID: 925736576}
   VirusMiniGameWindowPopUp: {fileID: 613602652}
   VirusMiniGameWindow: {fileID: 9460138}
+  PC: {fileID: 1040726049}
 --- !u!1 &952269236
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,12 +891,12 @@ GameObject:
   - component: {fileID: 1040726054}
   - component: {fileID: 1040726055}
   m_Layer: 0
-  m_Name: 9-Sliced
+  m_Name: PC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1040726050
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -936,7 +937,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 7344f563329f5ca48a5854e2b80d42a3, type: 3}
   m_Color: {r: 0, g: 1, b: 0.6460116, a: 1}
   m_FlipX: 0
