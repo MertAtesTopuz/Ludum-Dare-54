@@ -25,6 +25,8 @@ public class AtomVirus : MonoBehaviour
     private AudioSource audioSource;
     public bool isSpawn;
 
+    public Controller controller;
+
     //private bool isAnimating = false;
 
     void Start()
@@ -37,11 +39,18 @@ public class AtomVirus : MonoBehaviour
     void Update()
     {
 
+        if (gameDuration <= 0)
+        {
+            gameDuration = 60f;
+            EndGame();
+
+        }
+
         if (!isSpawn)
             return;
         timer += Time.deltaTime;
 
-        spawnInterval -= Time.deltaTime/35;
+        spawnInterval -= Time.deltaTime / 35;
         if (spawnInterval <= 0.6f)
         {
             spawnInterval = 0.6f;
@@ -120,6 +129,25 @@ public class AtomVirus : MonoBehaviour
 
     void EndGame()
     {
-        Debug.Log("Game Over!");
+        Debug.Log("VirusGAme is over");
+        isSpawn = false;
+        DestroyViruses();
+
+    }
+
+    private void DestroyViruses()
+    {
+        GameObject[] viruses = GameObject.FindGameObjectsWithTag("Virus");
+        GameObject[] AntiViruses = GameObject.FindGameObjectsWithTag("antiVir");
+
+        foreach (GameObject virus in viruses)
+        {
+            Destroy(virus);
+        }
+
+        foreach (GameObject antV in AntiViruses)
+        {
+            Destroy(antV);
+        }
     }
 }

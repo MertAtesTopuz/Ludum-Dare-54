@@ -28,7 +28,7 @@ public class Controller : MonoBehaviour
     private void Update()
     {
 
-        RamSlider .value = currRAM;
+        RamSlider.value = currRAM;
         if (Input.GetMouseButtonDown(0))
         {
 
@@ -61,7 +61,7 @@ public class Controller : MonoBehaviour
                 if (hit.collider.CompareTag("X"))
                 {
 
-                    
+
                     if (audioSource != null && Xerror != null)
                     {
                         audioSource.PlayOneShot(Xerror);
@@ -70,6 +70,13 @@ public class Controller : MonoBehaviour
                 }
 
             }
+        }
+
+        if (!AtomVirus.isSpawn)
+        {
+            VirusMiniGameWindow.SetActive(false);
+            //VirusMiniGameWindowPopUp.SetActive(false);
+            PC.SetActive(false);
         }
     }
 }

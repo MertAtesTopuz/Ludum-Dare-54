@@ -17,8 +17,10 @@ public class WindowSpawner : MonoBehaviour
     public AudioClip spawnSound;
 
     private float spawnTimer = 0f;
-    private float currentSpawnInterval; 
+    private float currentSpawnInterval;
     private AudioSource audioSource;
+
+    [SerializeField] private float OnOfTimer = 0f;
 
     public bool isSpawn;
 
@@ -35,6 +37,16 @@ public class WindowSpawner : MonoBehaviour
 
     private void Update()
     {
+        OnOfTimer += Time.deltaTime;
+        if (OnOfTimer >= 13)
+        {
+            isSpawn = !isSpawn;
+            OnOfTimer = 0f;
+        }
+
+
+
+
         if (!isSpawn)
             return;
         spawnTimer += Time.deltaTime;
@@ -58,7 +70,7 @@ public class WindowSpawner : MonoBehaviour
 
         Vector3 spawnPosition = new Vector3(
             Random.Range(-6.5f, 0.5f),
-            Random.Range(-1.2f, 1.8f),
+            Random.Range(-3.6f, 1.8f),
             0f
         );
 
