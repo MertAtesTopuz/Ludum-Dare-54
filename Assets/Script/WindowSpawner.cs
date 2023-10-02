@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WindowSpawner : MonoBehaviour
 {
-    public GameObject[] windowPrefabs;  // Array of window prefabs.
+    public GameObject[] windowPrefabs;
     public float spawnInterval = 2f;
     public float spawnRange = 5f;
     public int maxWindows = 10;
@@ -39,7 +39,6 @@ public class WindowSpawner : MonoBehaviour
             0f
         );
 
-        // Choose a random window prefab from the array.
         GameObject randomWindowPrefab = windowPrefabs[Random.Range(0, windowPrefabs.Length)];
 
         GameObject newWindow = Instantiate(randomWindowPrefab, spawnPosition, Quaternion.identity);
@@ -49,5 +48,6 @@ public class WindowSpawner : MonoBehaviour
         newWindow.tag = "Window";
 
         
+
     }
 }
