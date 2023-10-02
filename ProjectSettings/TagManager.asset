@@ -4,10 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
+  - Manager
+  - SystemFile
+  - MalwareFile
+  - Window
+=======
   - MalwareFile
   - SystemFile
   - Window
   - Virus
+>>>>>>> branch3
   layers:
   - Default
   - TransparentFX
