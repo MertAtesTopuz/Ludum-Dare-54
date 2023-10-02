@@ -27,8 +27,6 @@ public class AtomVirus : MonoBehaviour
 
     public Controller controller;
 
-    public FileSpawner file;
-
     //private bool isAnimating = false;
 
     void Start()
@@ -120,8 +118,6 @@ public class AtomVirus : MonoBehaviour
                 //isAnimating = true;
 
                 Destroy(hit.collider.gameObject, 0.1f);
-
-                file.hddSlider.value -= 1;
 
                 if (audioSource != null && deadSound != null)
                 {

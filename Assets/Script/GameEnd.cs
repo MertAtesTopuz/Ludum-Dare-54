@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameEnd : MonoBehaviour
 {
@@ -21,5 +22,12 @@ public class GameEnd : MonoBehaviour
             endPnl.SetActive(true);
             Time.timeScale = 0;
         }
+    }
+
+    public void RetryBtn()
+    {
+        endControl = false;
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

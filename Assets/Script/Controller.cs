@@ -31,6 +31,11 @@ public class Controller : MonoBehaviour
 
     private void Update()
     {
+        if (currRAM == 100)
+        {
+            GameEnd.instance.endControl = true;
+        }
+
         if (VirusMiniGameWindow.activeSelf == true)
         {
             windowCon.isSpawn = false;

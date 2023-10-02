@@ -26,7 +26,6 @@ public class AtAntiVirus : MonoBehaviour
     public bool isSpawn;
     public AtomVirus AtomVirus;
 
-    public FileSpawner file;
 
     //private bool isAnimating = false;
 
@@ -110,10 +109,9 @@ public class AtAntiVirus : MonoBehaviour
             {
                 anim.SetTrigger("Destroy");
                 //isAnimating = true;
-
                 Destroy(hit.collider.gameObject, 0.1f);
 
-                file.systemDeadCount += 1;
+                
 
                 if (audioSource != null && deadSound != null)
                 {
